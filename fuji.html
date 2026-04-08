@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Drill 2</title>
+</head>
+<body>
+
+    <h2>Heat Index Checker</h2>
+
+    <p>Enter the temperature and humidity to check the heat index!</p>
+
+    <label>Temperature (°C):</label>
+    <input type="number" id="tempInput">
+
+    <br><br>
+
+    <label>Humidity (%):</label>
+    <input type="number" id="humidInput">
+
+    <br><br>
+
+    <button onclick="checkHeatIndex()">Check Heat Index</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function checkHeatIndex() {
+            var temp = parseFloat(document.getElementById("tempInput").value);
+            var humidity = parseFloat(document.getElementById("humidInput").value);
+
+            var heatIndex = temp + (0.33 * humidity) - 4;
+
+            var status;
+
+            if (heatIndex <= 27) {
+                status = "Comfortable / Cool";
+            } else if (heatIndex <= 32) {
+                status = "Warm";
+            } else if (heatIndex <= 37) {
+                status = "Hot";
+            } else if (heatIndex <= 41) {
+                status = "Very Hot / Caution";
+            } else {
+                status = "Extreme Heat / Danger";
+            }
+
+            document.getElementById("result").innerHTML = "Heat Index: " + heatIndex + "°C - " + status;
+        }
+    </script>
+
+</body>
+</html>
