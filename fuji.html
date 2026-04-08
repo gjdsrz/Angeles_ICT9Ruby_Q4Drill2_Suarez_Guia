@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Drill 2</title>
+</head>
+<body>
+
+    <h2>Heat Index Checker</h2>
+
+    <p>Enter the temperature and humidity to check the heat index!</p>
+
+    <label>Temperature (°C):</label>
+    <input type="number" id="tempInput">
+
+    <br><br>
+
+    <label>Humidity (%):</label>
+    <input type="number" id="humidInput">
+
+    <br><br>
+
+    <button onclick="checkHeatIndex()">Check Heat Index</button>
+
+    <script>
+        function checkHeatIndex() {
+            var temp = parseFloat(document.getElementById("tempInput").value);
+            var humidity = parseFloat(document.getElementById("humidInput").value);
+
+            var heatIndex = temp + (0.33 * humidity) - 4;
+
+            var status;
+
+            switch (true) {
+                case (heatIndex <= 27):
+                    status = "MALAMIG DAHIL COLD AKO";
+                    break;
+                case (heatIndex <= 32):
+                    status = "SAKTO LANG";
+                    break;
+                case (heatIndex <= 37):
+                    status = "MEDYO MAINIT";
+                    break;
+                case (heatIndex <= 41):
+                    status = "MAINIT";
+                    break;
+                default:
+                    status = "SOBRANG MAINIT KATULAD KO";
+            }
+
+            alert("Heat Index: " + heatIndex + "°C - " + status);
+        }
+    </script>
+
+</body>
+</html>
